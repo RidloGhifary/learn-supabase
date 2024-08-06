@@ -3,10 +3,16 @@
 import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
 import { useUser } from "@/hooks/useUser";
+import { Song } from "@/types";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
+import MediaItem from "./MediaItem";
 
-export default function Library() {
+interface LibraryProps {
+  songs: Song[];
+}
+
+export default function Library({ songs }: LibraryProps) {
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
   const { user } = useUser();
@@ -33,7 +39,11 @@ export default function Library() {
           onClick={onClick}
         />
       </div>
-      <div className="mt-4 flex flex-col gap-y-2">List of songs</div>
+      <div className="mt-4 space-y-2">
+        {songs.map((song) => (
+          <MediaItem key={song.id} onClick={() => {}} data={song} />
+        ))}
+      </div>
     </div>
   );
 }
