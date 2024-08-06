@@ -2,8 +2,14 @@ import getLikedSongs from "@/actions/getLikedSongs";
 import Header from "@/components/Header";
 import Image from "next/image";
 import LikedContent from "./_components/LikedContent";
+import { Metadata } from "next";
 
 export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Liked - Spotify Clone",
+  description: "Spotify Clone for learning purpose and practice",
+};
 
 export default async function Liked() {
   const songs = await getLikedSongs();

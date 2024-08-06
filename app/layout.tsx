@@ -14,8 +14,7 @@ const font = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Spotify Clone",
-  description:
-    "Spotify Clone with Next.js 13 and TypeScript for learning purpose and practice",
+  description: "Spotify Clone for learning purpose and practice",
 };
 
 export const revalidate = 0;

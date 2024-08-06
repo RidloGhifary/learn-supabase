@@ -2,14 +2,20 @@ import getSongsByTitle from "@/actions/getSongsByTitle";
 import Header from "@/components/Header";
 import SearchInput from "@/components/SearchInput";
 import SearchContent from "./components/SearchContent";
+import { Metadata } from "next";
+
+export const revalidate = 0;
+
+export const metadata: Metadata = {
+  title: "Search - Spotify Clone",
+  description: "Spotify Clone for learning purpose and practice",
+};
 
 interface SearchProps {
   searchParams: {
     title: string;
   };
 }
-
-export const revalidate = 0;
 
 export default async function SearchPage({ searchParams }: SearchProps) {
   const songs = await getSongsByTitle(searchParams.title);
