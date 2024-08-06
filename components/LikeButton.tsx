@@ -29,7 +29,7 @@ export default function LikeButton({ songId }: LikeButtonProps) {
       const { data, error } = await supabaseClient
         .from("liked_songs")
         .select("*")
-        .eq("user_id", user.id)
+        .eq("user_id", user?.id)
         .eq("user_id", songId)
         .single();
 
