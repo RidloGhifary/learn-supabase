@@ -21,7 +21,7 @@ export default function PlayerContent({ song, songUrl }: PlayerContentProps) {
   const [volume, setVolume] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const Icon = true ? BsPauseFill : BsPlayFill;
+  const Icon = isPlaying ? BsPauseFill : BsPlayFill;
   const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
 
   const onPlayNext = () => {
@@ -69,7 +69,7 @@ export default function PlayerContent({ song, songUrl }: PlayerContentProps) {
     sound?.play();
 
     return () => {
-      sound?.onload();
+      sound?.stop();
     };
   }, [sound]);
 
